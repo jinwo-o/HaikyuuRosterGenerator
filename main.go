@@ -26,7 +26,7 @@ func main() {
 
 	pHandler := ph.NewPostHandler(connection)
 	r.Route("/", func(rt chi.Router) {
-		rt.Mount("/patients", postRouter(pHandler))
+		rt.Mount("/players", postRouter(pHandler))
 	})
 
 	fmt.Println("Server listen at :8080")
