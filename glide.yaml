@@ -1,0 +1,9 @@
+package: .
+imports:
+- package: github.com/Sirupsen/logrus
+- package: github.com/go-openapi/loads
+- package: github.com/go-openapi/strfmt
+- package: github.com/go-openapi/errors
+- package: github.com/go-openapi/runtime
+- package: github.com/jessevdk/go-flags
+- package: github.com/tylerb/graceful
