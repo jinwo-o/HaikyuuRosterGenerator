@@ -12,25 +12,25 @@ services:
       - "3306:3306"
     tty: true
 
-  # app:
-  #   build: ./
-  #   container_name: golang_app
-  #   ports:
-  #     - "8080:8080"
-  #   tty: true
-  #   depends_on:
-  #     - db
-  #   links:
-  #     - db
+  app:
+    build: ./
+    container_name: golang_app2
+    ports:
+      - "8080:8080"
+    tty: true
+    depends_on:
+      - db
+    links:
+      - db
 
-  # web:
-  #   build: ./webapp
-  #   container_name: golang_web
-  #   ports:
-  #     - "10001:10001"
-  #   depends_on:
-  #     - app
-  #     - db
-  #   links:
-  #     - app
-  #     - db
+  web:
+    build: ./webapp
+    container_name: golang_web2
+    ports:
+      - "10001:10001"
+    depends_on:
+      - app
+      - db
+    links:
+      - app
+      - db
