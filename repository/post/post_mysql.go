@@ -33,8 +33,8 @@ func (m *mysqlPostRepo) fetch(ctx context.Context, query string, args ...interfa
 		err := rows.Scan(
 			&data.ID,
 			&data.Name,
-			&data.Gender,
-			&data.Disease,
+			&data.School,
+			&data.Position,
 		)
 		if err != nil {
 			return nil, err
@@ -94,7 +94,7 @@ func (m *mysqlPostRepo) Update(ctx context.Context, p *models.Post) (*models.Pos
 		fmt.Println("Update Error has occred")
 		return nil, err
 	}
-	_, err = stmt.ExecContext(ctx, p.ID, p.Name, p.Gender, p.Disease)
+	_, err = stmt.ExecContext(ctx, p.ID, p.Name, p.Position, p.School)
 	if err != nil {
 		fmt.Println("Update Error2 has occred")
 		return nil, err

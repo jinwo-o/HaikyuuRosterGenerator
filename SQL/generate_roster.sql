@@ -16,14 +16,14 @@
 -- set position_str = 'M';
 -- SET school_str = 'Opposite';
 
--- INSERT INTO players_table ( name, gender, disease ) VALUES ( name_str, position_str, school_str );
+INSERT INTO players_table ( name, gender, disease ) VALUES ( name_str, position_str, school_str );
 
 # SQL Script that creates fake player data
-# Create the database parameters; ID, Name, Gender, Disease
+# Create the database parameters; ID, Name, Position, School
 CREATE DATABASE IF NOT EXISTS players;
 USE players;
 
-CREATE TABLE IF NOT EXISTS player_table ( ID smallint unsigned not null AUTO_INCREMENT, name varchar(20) not null, position varchar(20) not null, \
+CREATE TABLE IF NOT EXISTS players_table ( ID smallint unsigned not null AUTO_INCREMENT, name varchar(20) not null, position varchar(20) not null, \
 school varchar(50) not null, primary key (ID) );
 
 
@@ -47,11 +47,11 @@ SET name_str =  (select elt(0.5 + RAND() * 5, 'Hinata', 'Kageyama', 'Atsumu', 'H
 set position_str = (select elt(0.5 + RAND() * 2, 'Opposite', 'Setter'));
 SET school_str = (select elt(0.5 + RAND() * 6, 'nize', 'ur', 'bique', 'fam', 'why you', 'souka'));
 
-INSERT INTO player_table ( name, gender, disease ) VALUES ( name_str, position_str, school_str );
+INSERT INTO players_table ( name, gender, disease ) VALUES ( name_str, position_str, school_str );
 SET  id_int = id_int + 1; 
 END WHILE;
 
-SELECT * FROM player_table;
+SELECT * FROM ;
 END$$
 
 DELIMITER ;
