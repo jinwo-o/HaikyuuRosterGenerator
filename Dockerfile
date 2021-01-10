@@ -12,4 +12,4 @@ RUN go install -v ./...
 RUN go build main.go
 
 EXPOSE 8080
-ENTRYPOINT [ "/go/src/github.com/jinwo-o/HaikyuuRosterGenerator/main ]
+ENTRYPOINT [ "/go/src/github.com/jinwo-o/HaikyuuRosterGenerator/main" ]
