@@ -40,8 +40,16 @@
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Position</th>
                         <th>School</th>
+                        <th>Position</th>
+                        <th>Serve</th>
+                        <th>Serve Reception</th>
+                        <th>Dig</th>
+                        <th>Set</th>
+                        <th>Spike</th>
+                        <th>Block</th>
+                        <th>Total</th>
+                        <th>Notes</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,7 +69,16 @@ $(document).ready(function() {
             { data : "ID" },
             { data : "name" },
             { data : "school" },
-            { data : "position" }
+            { data : "position" },
+            { data : "serve" },
+            { data : "serve_reception" },
+            { data : "dig" },
+            { data : "set" },
+            { data : "spike" },
+            { data : "block" },
+            // figure out how to get total from js
+            { data : "total" },
+            { data : "notes" }
         ]
     });
 });
