@@ -3,27 +3,35 @@ CREATE DATABASE IF NOT EXISTS players;
 
 USE players;
 
-CREATE TABLE IF NOT EXISTS players_table ( ID smallint unsigned not null AUTO_INCREMENT, name varchar(20) not null, position varchar(20) not null, \
-school varchar(50) not null, primary key (ID) );
+CREATE TABLE IF NOT EXISTS players_table ( ID smallint unsigned not null AUTO_INCREMENT, name varchar(200) not null, position varchar(200) not null, school varchar(200) not null, serve int, serve_reception int, dig int, set_a int, spike int, block_a int, total int, notes varchar(200) primary key (ID) );
 
 
-DECLARE name_str  INT;
-DECLARE position_str  INT;
-DECLARE school_str  INT;
+DECLARE name_str  VARCHAR(200);
+DECLARE position_str  VARCHAR(200);
+DECLARE school_str  VARCHAR(200);
 DECLARE serve_int  INT;
 DECLARE serve_reception_int  INT;
 DECLARE dig_int  INT;
 DECLARE set_int  INT;
 DECLARE spike_int  INT;
 DECLARE block_int  INT;
-DECLARE total  INT;
-DECLARE notes  INT;
+DECLARE total_int  INT;
+DECLARE notes_str  VARCHAR(200);
 
 SET name_str =  'Kageyama';
-set position_str = 'M';
-SET school_str = 'Opposite';
+SET position_str = 'Opposite';
+SET school_str = 'Karasuno';
+SET serve_int = 10;
+SET serve_reception_int = 7;
+SET dig_int = 8;
+SET spike_int = 10;
+SET set_int = 10;
+SET block_int = 8;
+SET total_int = 53;
+SET notes_str = 'he nice';
 
-INSERT INTO players_table ( name, gender, disease ) VALUES ( name_str, position_str, school_str );
+INSERT INTO players_table ( name, position, school, serve, serve_reception, dig, spike, set_a, block_a, total, notes) VALUES ( name_str, position_str, school_str \
+, serve_int, serve_reception_int, dig_int, spike_int, set_int, block_int, total_int, notes_str);
 
 -- # SQL Script that creates fake player data
 -- # Create the database parameters; ID, Name, Position, School
