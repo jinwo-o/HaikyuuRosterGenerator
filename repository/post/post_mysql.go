@@ -41,8 +41,8 @@ func (m *mysqlPostRepo) fetch(ctx context.Context, query string, args ...interfa
 			&data.Set,
 			&data.Spike,
 			&data.Block,
-			&data.Total,
-			&data.Notes,
+			// &data.Total,
+			// &data.Notes,
 		)
 		if err != nil {
 			return nil, err
@@ -53,7 +53,9 @@ func (m *mysqlPostRepo) fetch(ctx context.Context, query string, args ...interfa
 }
 
 func (m *mysqlPostRepo) Fetch(ctx context.Context, num int64) ([]*models.Post, error) {
-	query := "Select ID, name, position, school, serve, serve_reception, dig, set, spike, block, total, notes From players_table"
+	// query := "Select ID, name, position, school, serve, serve_reception, dig, set, spike, block, total, notes From players_table"
+	query := "Select * From players_table"
+
 
 	return m.fetch(ctx, query)
 }
