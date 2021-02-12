@@ -4,8 +4,8 @@ package models
 type Post struct {
 	ID      int64  `json:"ID"`
 	Name    string `json:"name"`
-	Position  string `json:"position"`
 	School string `json:"school"`
+	Position  string `json:"position"`
 	Serve      int64  `json:"serve"`
 	ServeReception      int64  `json:"serve_reception"`
 	Dig      int64  `json:"dig"`

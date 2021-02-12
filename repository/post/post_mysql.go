@@ -61,7 +61,7 @@ func (m *mysqlPostRepo) Fetch(ctx context.Context, num int64) ([]*models.Post, e
 }
 
 func (m *mysqlPostRepo) GetByID(ctx context.Context, id int64) (*models.Post, error) {
-	query := "Select ID, name, position, school, serve, serve_reception, dig, set, spike, block, total, notes From players_table where id=?"
+	query := "Select ID, name, school, position, serve, serve_reception, dig, set_a, spike, block_a, total, notes From players_table where id=?"
 
 	rows, err := m.fetch(ctx, query, id)
 	if err != nil {
@@ -79,25 +79,27 @@ func (m *mysqlPostRepo) GetByID(ctx context.Context, id int64) (*models.Post, er
 }
 
 func (m *mysqlPostRepo) Create(ctx context.Context, p *models.Post) (int64, error) {
-	query := "Insert players_table SET name=?, position=?, school=?, serve=?, serve_reception=?, dig=?, set=?, spike=?, block=?, total=?, notes=?"
+	query := "Insert players_table SET name=?, school=?, position=?, serve=?, serve_reception=?, dig=?, set_a=?, spike=?, block_a=?"
+	// query := "Insert players_table SET name=?, school=?, position=?, serve=?, serve_reception=?, dig=?, set_a=?, spike=?, block_a=?, total=?, notes=?"
+
 
 	stmt, err := m.Conn.PrepareContext(ctx, query)
 	if err != nil {
-		return -1, err
+		return -2, err
 	}
 
-	res, err := stmt.ExecContext(ctx, p.Name, p.Position, p.School)
+	res, err := stmt.ExecContext(ctx, p.Name, p.School, p.Position, p.Serve, p.ServeReception, p.Dig, p.Set, p.Spike, p.Block)
 	defer stmt.Close()
 
 	if err != nil {
-		return -1, err
+		return -3, err
 	}
 
 	return res.LastInsertId()
 }
 
 func (m *mysqlPostRepo) Update(ctx context.Context, p *models.Post) (*models.Post, error) {
-	query := "update players_table set name=?, position=?, school=?, serve=?, serve_reception=?, dig=?, set=?, spike=?, block=?, total=?, notes=? where id=?"
+	query := "Update players_table set name=?, school=?, position=?, serve=?, serve_reception=?, dig=?, set=?, spike=?, block=?, total=?, notes=? where id=?"
 
 	stmt, err := m.Conn.PrepareContext(ctx, query)
 	if err != nil {
